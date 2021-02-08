@@ -14,18 +14,18 @@ client.on("message", function (message) {
     }
 })
 
-bot.on('guildMemberAdd', member => {
+bot.on("guildMemberAdd", member => {
     member.createDM().then(channel => {
-      return channel.send('Salut la zone , bienvenue dans Le Paradis Du Dieu Unique Axel ' + member.displayName)
+      return channel.send("Salut la zone , bienvenue dans Le Paradis Du Dieu Unique Axel " + member.displayName)
     }).catch(console.error)
     // On pourrait catch l'erreur autrement ici (l'utilisateur a peut être désactivé les MP)
   })
 
-bot.on('message', message => {
-  if (message.content.startsWith('STPplay')) {
+bot.on("message", message => {
+  if (message.content.startsWith("STPplay")) {
     // On récupère le premier channel audio du serveur
     let voiceChannel = message.guild.channels
-      .filter(function (channel) { return channel.type === 'voice' })
+      .filter(function (channel) { return channel.type === "voice" })
       .first()
     // On récupère les arguments de la commande 
     // il faudrait utiliser une expression régulière pour valider le lien youtube
@@ -36,7 +36,7 @@ bot.on('message', message => {
       .then(function (connection) {
         // On démarre un stream à partir de la vidéo youtube
         let stream = YoutubeStream(args[1])
-        stream.on('merde raté', function () {
+        stream.on("merde raté", function () {
           message.reply("Wesh je suis pas jésus , ça marche pas ton truc")
           connection.disconnect()
         })
@@ -44,13 +44,32 @@ bot.on('message', message => {
         // Il faudrait ici éviter les superpositions (envoie de plusieurs vidéo en même temps)
         connection
           .playStream(stream)
-          .on('end', function () {
+          .on("end", function () {
             connection.disconnect()
           })
       })
   }
 
 })
-
+bot.on (‘message’, fonction (user, userID, channelID, message, evt) ;{
+    // Notre bot a besoin de savoir s’il va exécuter une commande
+    // Il écoutera les messages commençant par «!»
+    if (message.substring (0, 1) == '!') {
+        var args = message.substring (1) .split ("");
+        var cmd = args[0];
+       
+        args = args.splice (1);
+        commutateur (cmd) { 
+            //! ping
+            cas("ping");
+                bot.sendMessage ({
+                    à: channelID,
+                    message: ("Pong!")
+                });
+            Pause;
+            // Ajoutez simplement les commandes de casse si vous le souhaitez.
+         }
+     }
+});
 
 client.login(process.env.TOKEN);
