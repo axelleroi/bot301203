@@ -2,7 +2,7 @@
   "name": "bot",
   "version": "1.0.0",
   "description": "test bot",
-  "main": "index.js",
+  "main": "main.js",
   "author": "axel",
   "license": "ISC",
   "dependencies": {
