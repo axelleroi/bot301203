@@ -10,7 +10,7 @@ client.on("ready", function () {
 // Répondre à un message
 client.on("message", function (message) {
     if (message.content === "salut") { // Lorsque "Salut" est envoyé
-        message.channel.send("coucou "+ member.displayName)
+        message.channel.send("coucou ")
     }
 })
 
