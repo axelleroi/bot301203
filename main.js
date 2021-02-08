@@ -51,25 +51,6 @@ bot.on('message', message => {
   }
 
 })
-bot.on (‘message’, fonction (user, userID, channelID, message, evt) ;{
-    // Notre bot a besoin de savoir s’il va exécuter une commande
-    // Il écoutera les messages commençant par «!»
-    if (message.substring (0, 1) == "!") {
-        var args = message.substring (1) .split ("");
-        var cmd = args[0];
-       
-        args = args.splice (1);
-        commutateur (cmd) ; { 
-            //! ping
-            cas("ping");
-                bot.sendMessage ({
-                    à: channelID,
-                    message: ("Pong!")
-                });
-            Pause;
-            // Ajoutez simplement les commandes de casse si vous le souhaitez.
-         }
-     }
-});
+
 
 client.login(process.env.TOKEN);
