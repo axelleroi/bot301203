@@ -14,14 +14,9 @@ client.on("message", function (message) {
     }
 })
 
-bot.on("guildMemberAdd", member => {
-    member.createDM().then(channel => {
-      return channel.send("Salut la zone , bienvenue dans Le Paradis Du Dieu Unique Axel " + member.displayName)
-    }).catch(console.error)
-    // On pourrait catch l'erreur autrement ici (l'utilisateur a peut être désactivé les MP)
-  })
 
-bot.on("message", message => {
+
+client.on("message", message => {
   if (message.content.startsWith("STPplay")) {
     // On récupère le premier channel audio du serveur
     let voiceChannel = message.guild.channels
@@ -51,6 +46,3 @@ bot.on("message", message => {
   }
 
 })
-
-
-client.login(process.env.TOKEN);
