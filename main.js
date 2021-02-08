@@ -9,8 +9,8 @@ client.on("ready", function () {
 
 // Répondre à un message
 client.on("message", function (message) {
-    if (message.content === "Salut") { // Lorsque "Salut" est envoyé
-        message.channel.send("Salut l'ami !")
+    if (message.content === "salut") { // Lorsque "Salut" est envoyé
+        message.channel.send("Elle est laaaa, Grosse puuteee")
     }
 })
 
